@@ -37,17 +37,18 @@ const moveMole = () => {
   timer = setInterval(moleBehaviour, 500);
 };
 
-moveMole();
+startGame = () => {
+  const countDown = () => {
+    currentTime--;
+    timeLeft.textContent = currentTime;
 
-const countDown = () => {
-  currentTime--;
-  timeLeft.textContent = currentTime;
+    if (currentTime == 0) {
+      clearInterval(countDownTimer);
+      clearInterval(timer);
+      alert("Game over! Your score is " + result + ".");
+    }
+  };
+  let countDownTimer = setInterval(countDown, 1000);
 
-  if (currentTime == 0) {
-    clearInterval(countDownTimer);
-    clearInterval(timer);
-    alert("Game over! Your score is " + result + ".");
-  }
+  moveMole();
 };
-
-let countDownTimer = setInterval(countDown, 1000);
