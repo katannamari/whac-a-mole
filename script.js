@@ -2,6 +2,8 @@ const squares = document.querySelectorAll(".square");
 const mole = document.querySelector(".mole");
 const score = document.querySelector(".score");
 const timeLeft = document.querySelector(".time-left");
+const button = document.querySelector(".button");
+const gameInfo = document.querySelector(".game-info");
 
 let result = 0;
 let hitPosition;
@@ -35,6 +37,7 @@ squares.forEach((square) => {
 
 const moveMole = () => {
   timer = setInterval(moleBehaviour, 500);
+  clearInterval(moleBehaviour);
 };
 
 startGame = () => {
@@ -49,6 +52,8 @@ startGame = () => {
     }
   };
   let countDownTimer = setInterval(countDown, 1000);
-
   moveMole();
+
+  button.classList.add("button-hidden");
+  gameInfo.style.removeProperty("display");
 };

@@ -14,3 +14,15 @@
 .mole {
   background-color: blue;
 }
+
+.button-hidden {
+  display: none;
+}
+
+/* .game-info-hidden {
+  display: none;
+} */
+
+.game-info-visible {
+  display: "";
+}
