@@ -1,14 +1,38 @@
-.grid {
+/* Basic styling */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+.container {
+  min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
-  width: 606px;
-  height: 606px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Game board */
+.grid {
+  display: inline-grid;
+  background-color: lightblue;
+  grid-template-columns: 100px 100px 100px;
+  grid-template-rows: 100px 100px 100px;
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  padding: 10px;
 }
 
 .square {
-  width: 200px;
-  height: 200px;
-  border: solid black 1px;
+  border: solid black 2px;
+  border-radius: 10px;
 }
 
 .mole {
