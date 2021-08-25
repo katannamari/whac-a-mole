@@ -3,6 +3,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-color: #efefef;
 }
 
 *,
@@ -28,15 +29,30 @@ body {
   column-gap: 0.5rem;
   row-gap: 0.5rem;
   padding: 10px;
+  border-radius: 10px;
 }
 
 .square {
-  border: solid black 2px;
+  border: solid #efefef 3px;
   border-radius: 10px;
 }
 
 .mole {
-  background-color: blue;
+  background-color: lightsalmon;
+}
+
+/* Button */
+.button {
+  background-color: lightsalmon;
+  color: #efefef;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 2rem;
+  transition: 0.5s;
+}
+
+.button:hover {
+  background-color: gray;
 }
 
 .button-hidden {
