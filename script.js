@@ -1,5 +1,4 @@
-const squares = document.querySelectorAll(".square");
-const mole = document.querySelector(".mole");
+// Variable initialization
 const score = document.querySelector(".score");
 const timeLeft = document.querySelector(".time-left");
 const button = document.querySelector(".button");
@@ -10,6 +9,21 @@ let hitPosition;
 let currentTime = 10;
 let timer = null;
 
+// Create game board in the html-file
+const element = document.querySelector(".grid");
+const boardArray = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+const createBoard = (gameBoard, id) => {
+  let gameSquare = "";
+  for (let i = 0; i < gameBoard.length; i++) {
+    gameSquare += `<div class="square" id="${gameBoard[i]}"></div>`;
+  }
+  element.innerHTML = gameSquare;
+};
+createBoard(boardArray);
+
+// Mole behaviour
+const mole = document.querySelector(".mole");
+const squares = document.querySelectorAll(".square");
 const moleBehaviour = () => {
   // At the start of the game, clean the board
   squares.forEach((square) => {
@@ -17,7 +31,7 @@ const moleBehaviour = () => {
   });
 
   // Move mole around the grid
-  let randomSquare = squares[Math.floor(Math.random() * 9)];
+  let randomSquare = squares[Math.floor(Math.random() * 8)];
   randomSquare.classList.add("mole");
   hitPosition = randomSquare.id;
 };
