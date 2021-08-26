@@ -1,41 +1,55 @@
 // Variable initialization
-const score = document.querySelector(".score");
-const timeLeft = document.querySelector(".time-left");
 const button = document.querySelector(".button");
 const gameInfo = document.querySelector(".game-info");
 
-let result = 0;
-let hitPosition;
-let currentTime = 10;
-let timer = null;
+// GAME BOARD
 
-// Create game board in the html-file
+// Grab correct div to add content to:
 const element = document.querySelector(".grid");
+
+// An array for how many squares are needed for board
 const boardArray = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-const createBoard = (gameBoard, id) => {
-  let gameSquare = "";
-  for (let i = 0; i < gameBoard.length; i++) {
-    gameSquare += `<div class="square" id="${gameBoard[i]}"></div>`;
+
+const createBoard = (boardArray, id) => {
+  // initial empty variable we add markup to
+  let markup = "";
+
+  // Loop creates required squares for the board according to array
+  for (let i = 0; i < boardArray.length; i++) {
+    markup += `<div class="square" id="${boardArray[i]}"></div>`;
   }
-  element.innerHTML = gameSquare;
+  // Prints the markup inside <div class="grid"></div>
+  element.innerHTML = markup;
 };
 createBoard(boardArray);
 
-// Mole behaviour
+// MOLE BEHAVIOUR
+
+// Grab correct divs from html file:
 const mole = document.querySelector(".mole");
 const squares = document.querySelectorAll(".square");
+let hitPosition;
+
 const moleBehaviour = () => {
-  // At the start of the game, clean the board
+  // At the start of the game, clean the board by removing the
+  // "mole"-class
   squares.forEach((square) => {
     square.classList.remove("mole");
   });
 
-  // Move mole around the grid
+  // Move mole around the grid by picking a random one of the squares
+  // and adding the "mole"-class to it
   let randomSquare = squares[Math.floor(Math.random() * 8)];
   randomSquare.classList.add("mole");
+
+  // hitPosition is the same as the randomized mole location
   hitPosition = randomSquare.id;
 };
 
+// SCORE COUNTING
+
+const score = document.querySelector(".score");
+let result = 0;
 // Checking player's mouse click to see if it matches where
 // the mole is
 squares.forEach((square) => {
@@ -54,6 +68,11 @@ const moveMole = () => {
   clearInterval(moleBehaviour);
 };
 
+// TIMER
+const timeLeft = document.querySelector(".time-left");
+let currentTime = 10;
+let timer = null;
+
 startGame = () => {
   const countDown = () => {
     currentTime--;
@@ -62,7 +81,7 @@ startGame = () => {
     if (currentTime == 0) {
       clearInterval(countDownTimer);
       clearInterval(timer);
-      alert("Game over! Your score is " + result + ".");
+      alert("Game over! You scored " + result + " points.");
     }
   };
   let countDownTimer = setInterval(countDown, 1000);
