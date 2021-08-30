@@ -68,12 +68,18 @@ squares.forEach((square) => {
   });
 });
 
+resetGame = () => {
+  score.textContent = 0;
+  timeLeft.textContent = 10;
+};
+
 // TIMER
 const timeLeft = document.querySelector(".time-left");
 let currentTime = 10;
 let timer = null;
 
 startGame = () => {
+  resetGame();
   const countDown = () => {
     currentTime--;
     timeLeft.textContent = currentTime;
