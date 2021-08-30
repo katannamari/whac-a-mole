@@ -41,6 +41,10 @@ body {
   background-color: lightsalmon;
 }
 
+.score-final {
+  color: blue;
+}
+
 /* Button */
 .button {
   background-color: lightsalmon;

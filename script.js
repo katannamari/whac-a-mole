@@ -46,6 +46,11 @@ const moleBehaviour = () => {
   hitPosition = randomSquare.id;
 };
 
+const moveMole = () => {
+  timer = setInterval(moleBehaviour, 500);
+  clearInterval(moleBehaviour);
+};
+
 // SCORE COUNTING
 
 const score = document.querySelector(".score");
@@ -63,11 +68,6 @@ squares.forEach((square) => {
   });
 });
 
-const moveMole = () => {
-  timer = setInterval(moleBehaviour, 500);
-  clearInterval(moleBehaviour);
-};
-
 // TIMER
 const timeLeft = document.querySelector(".time-left");
 let currentTime = 10;
@@ -81,7 +81,12 @@ startGame = () => {
     if (currentTime == 0) {
       clearInterval(countDownTimer);
       clearInterval(timer);
-      alert("Game over! You scored " + result + " points.");
+      // alert("Game over! You scored " + result + " points.");
+      score.classList.add("score-final");
+      score.classList.remove("score");
+      button.classList.remove("button-hidden");
+      currentTime = 10;
+      result = 0;
     }
   };
   let countDownTimer = setInterval(countDown, 1000);
