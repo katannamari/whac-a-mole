@@ -88,11 +88,10 @@ startGame = () => {
       clearInterval(countDownTimer);
       clearInterval(timer);
       // alert("Game over! You scored " + result + " points.");
-      score.classList.add("score-final");
-      score.classList.remove("score");
       button.classList.remove("button-hidden");
       currentTime = 10;
       result = 0;
+      button.textContent = "New Game";
     }
   };
   let countDownTimer = setInterval(countDown, 1000);
