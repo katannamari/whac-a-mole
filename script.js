@@ -68,9 +68,27 @@ squares.forEach((square) => {
   });
 });
 
-resetGame = () => {
+// Clears the score and time when the start game-button is pressed
+const resetGame = () => {
   score.textContent = 0;
   timeLeft.textContent = 10;
+};
+
+// game-info-div is updated with some new markup
+const displayResults = () => {
+  let statMarkup = "";
+  let buttonMarkup = "";
+
+  // Update final score info
+  statMarkup += `<h2>Time's up!</h2>
+            <h2>Final Score:</h2>
+            <p class="score-final">${score.textContent}</p>`;
+
+  // Update start button text
+  buttonMarkup += `New Game`;
+
+  gameInfo.innerHTML = statMarkup;
+  button.innerHTML = buttonMarkup;
 };
 
 // TIMER
@@ -90,6 +108,7 @@ startGame = () => {
       button.classList.remove("button-hidden");
       currentTime = 10;
       result = 0;
+      displayResults();
     }
   };
   let countDownTimer = setInterval(countDown, 1000);
