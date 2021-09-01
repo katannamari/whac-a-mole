@@ -41,8 +41,15 @@ body {
   background-color: lightsalmon;
 }
 
+/* Game stats */
+
+.game-info {
+  text-align: center;
+}
+
 .score-final {
   color: blue;
+  text-align: center;
 }
 
 /* Button */

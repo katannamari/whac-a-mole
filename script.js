@@ -68,9 +68,20 @@ squares.forEach((square) => {
   });
 });
 
-resetGame = () => {
+// Clears the score and time when the start game-button is pressed
+const resetGame = () => {
   score.textContent = 0;
   timeLeft.textContent = 10;
+};
+
+const displayResults = () => {
+  let markup = "";
+  const element = document.querySelector(".game-info");
+
+  markup += `<h2>Time's up!</h2>
+            <h2>Final Score:</h2>
+            <p class="score-final">${score.textContent}</p>`;
+  element.innerHTML = markup;
 };
 
 // TIMER
@@ -88,11 +99,12 @@ startGame = () => {
       clearInterval(countDownTimer);
       clearInterval(timer);
       // alert("Game over! You scored " + result + " points.");
-      score.classList.add("score-final");
+      // score.classList.add("score-final");
       score.classList.remove("score");
       button.classList.remove("button-hidden");
       currentTime = 10;
       result = 0;
+      displayResults();
     }
   };
   let countDownTimer = setInterval(countDown, 1000);
