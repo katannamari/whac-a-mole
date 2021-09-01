@@ -74,14 +74,21 @@ const resetGame = () => {
   timeLeft.textContent = 10;
 };
 
+// game-info-div is updated with some new markup
 const displayResults = () => {
-  let markup = "";
-  const element = document.querySelector(".game-info");
+  let statMarkup = "";
+  let buttonMarkup = "";
 
-  markup += `<h2>Time's up!</h2>
+  // Update final score info
+  statMarkup += `<h2>Time's up!</h2>
             <h2>Final Score:</h2>
             <p class="score-final">${score.textContent}</p>`;
-  element.innerHTML = markup;
+
+  // Update start button text
+  buttonMarkup += `New Game`;
+
+  gameInfo.innerHTML = statMarkup;
+  button.innerHTML = buttonMarkup;
 };
 
 // TIMER
