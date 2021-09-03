@@ -18,6 +18,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 /* Game board */
@@ -41,11 +42,6 @@ body {
   background-color: lightsalmon;
 }
 
-/* Game stats */
-.game-info {
-  text-align: center;
-}
-
 /* Button */
 .button {
   background-color: lightsalmon;
@@ -62,4 +58,27 @@ body {
 
 .button-hidden {
   display: none;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 900px) {
+  /* Font sizes */
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Game board */
+  .grid {
+    grid-template-columns: 75px 75px 75px;
+    grid-template-rows: 75px 75px 75px;
+    column-gap: 0.25rem;
+    row-gap: 0.25rem;
+    padding: 10px;
+    border-radius: 10px;
+  }
 }
